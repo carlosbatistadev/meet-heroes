@@ -11,7 +11,21 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Heróis e Vilões'),
+        title: const Text('Conhecer Heróis'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.favorite_border),
+            onPressed: () {
+              // TODO: FALTA IMPLEMENTAR
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {
+              // TODO: FALTA IMPLEMENTAR
+            },
+          ),
+        ],
       ),
       body: Container(),
     );
