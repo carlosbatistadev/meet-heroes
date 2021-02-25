@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-import 'persona_model.dart';
+import 'character_model.dart';
 
 class ResponseModel {
   final String response;
   final String resultsFor;
-  final List<PersonaModel> results;
+  final List<CharacterModel> results;
   ResponseModel({
     this.response,
     this.resultsFor,
@@ -26,8 +26,8 @@ class ResponseModel {
     return ResponseModel(
       response: map['response'],
       resultsFor: map['resultsFor'],
-      results: List<PersonaModel>.from(
-          map['results']?.map((x) => PersonaModel.fromMap(x))),
+      results: List<CharacterModel>.from(
+          map['results']?.map((x) => CharacterModel.fromMap(x))),
     );
   }
 
