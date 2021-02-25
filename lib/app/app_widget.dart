@@ -13,7 +13,8 @@ GetMaterialApp appWidget() {
     debugShowCheckedModeBanner: false,
     title: 'Conhecer Heróis',
     theme: ThemeData(
-      primaryColor: Colors.grey[100],
+      primaryColor: Colors.brown,
+      accentColor: Colors.brown,
       appBarTheme: AppBarTheme(
         brightness: Brightness.dark,
         color: Colors.grey[200],
