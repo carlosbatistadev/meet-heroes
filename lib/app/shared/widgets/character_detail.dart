@@ -32,27 +32,27 @@ Widget characterDetail(CharacterModel character,
             const Divider(),
             powerstats(
               powerName: 'Inteligência',
-              quantity: double.parse(character.powerstats.intelligence),
+              quantity: double.tryParse(character.powerstats.intelligence),
             ),
             powerstats(
               powerName: 'Força',
-              quantity: double.parse(character.powerstats.strength),
+              quantity: double.tryParse(character.powerstats.strength),
             ),
             powerstats(
               powerName: 'Velocidade',
-              quantity: double.parse(character.powerstats.speed),
+              quantity: double.tryParse(character.powerstats.speed),
             ),
             powerstats(
               powerName: 'Durabilidade',
-              quantity: double.parse(character.powerstats.durability),
+              quantity: double.tryParse(character.powerstats.durability),
             ),
             powerstats(
               powerName: 'Poder',
-              quantity: double.parse(character.powerstats.power),
+              quantity: double.tryParse(character.powerstats.power),
             ),
             powerstats(
               powerName: 'Combate',
-              quantity: double.parse(character.powerstats.combat),
+              quantity: double.tryParse(character.powerstats.combat),
             ),
           ],
         ),
@@ -73,7 +73,7 @@ Widget powerstats({String powerName, double quantity}) {
         child: Align(
           alignment: Alignment.centerLeft,
           child: Container(
-            width: quantity,
+            width: quantity == null ? 0.0 : quantity,
             height: 6,
             color: Colors.red,
           ),
