@@ -14,8 +14,17 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Conhecer Heróis'),
+        title: const Text(
+          'Conhecer Heróis',
+          style: TextStyle(color: Colors.black87),
+        ),
         actions: [
+          IconButton(
+            icon: const Icon(Icons.favorite_border_sharp),
+            onPressed: () {
+              // TODO: FALTA IMPLEMENTAR
+            },
+          ),
           IconButton(
             icon: const Icon(Icons.search),
             onPressed: () {
@@ -34,126 +43,92 @@ class HomePage extends StatelessWidget {
               child: SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: List.generate(
-                    6,
-                    (index) {
-                      if (index == 5) {
-                        return InkWell(
-                          onTap: () {},
-                          child: Container(
-                            width: 200,
-                            height: 390,
-                            child: Center(
-                              child: Text('Mostrar todos'),
-                            ),
-                          ),
-                        );
-                      }
+                child: GetBuilder<HomeGetxController>(
+                  builder: (_) {
+                    if (_controller.isLoading &&
+                        _controller.favorites.isEmpty) {
+                      return Center(child: CircularProgressIndicator());
+                    }
+                    return Row(
+                      children: List.generate(
+                        _controller.favorites.length + 1,
+                        (characterID) {
+                          if (characterID == _controller.favorites.length) {
+                            if (_controller.characters.isEmpty) {
+                              return Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Nada para mostrar'),
+                              );
+                            }
+                            return InkWell(
+                              onTap: () {},
+                              child: Container(
+                                width: 200,
+                                height: 390,
+                                child: Center(
+                                  child: Text('Mostrar todos'),
+                                ),
+                              ),
+                            );
+                          }
 
-                      return characterDetail(
-                          CharacterModel.fromMap(
-                            {
-                              "response": "success",
-                              "id": "405",
-                              "name": "Lex Luthor",
-                              "powerstats": {
-                                "intelligence": "100",
-                                "strength": "53",
-                                "speed": "25",
-                                "durability": "65",
-                                "power": "68",
-                                "combat": "70"
-                              },
-                              "biography": {
-                                "full-name": "Lex Luthor",
-                                "alter-egos": "No alter egos found.",
-                                "aliases": ["-"],
-                                "place-of-birth": "-",
-                                "first-appearance": "Action Comics #23",
-                                "publisher": "DC Comics",
-                                "alignment": "bad"
-                              },
-                              "appearance": {
-                                "gender": "Male",
-                                "race": "Human",
-                                "height": ["6'2'", "188 cm"],
-                                "weight": ["210 lb", "95 kg"],
-                                "eye-color": "Green",
-                                "hair-color": "No Hair"
-                              },
-                              "work": {
-                                "occupation": "Owner of LexCorp",
-                                "base": "-"
-                              },
-                              "connections": {
-                                "group-affiliation":
-                                    "Injustice Gang, Injustice League, Society of Supervillains",
-                                "relatives":
-                                    "Casey and Elaine Griggs (foster parents, deceased),\nLena Luthor (sister pre-Crisis; daughter post-Crisis),\nElizabeth Perske (ex-wife),\nPerry J. White Jr. (son, deceased),\nContessa Erica Alexandra del Portenza (wife, assumed deceased)"
-                              },
-                              "image": {
-                                "url":
-                                    "https:\/\/www.superherodb.com\/pictures2\/portraits\/10\/100\/727.jpg"
-                              }
-                            },
-                          ),
-                          onTap: () {});
-                    },
-                  ),
+                          return characterDetail(
+                            _controller.favorites[characterID],
+                            onTap: () {},
+                          );
+                        },
+                      ),
+                    );
+                  },
                 ),
               ),
             ),
             const SizedBox(height: 30),
-            Container(
-              width: Get.width * 0.9,
-              child: characterDetail(
-                CharacterModel.fromMap(
-                  {
-                    "response": "success",
-                    "id": "405",
-                    "name": "Lex Luthor",
-                    "powerstats": {
-                      "intelligence": "100",
-                      "strength": "53",
-                      "speed": "25",
-                      "durability": "65",
-                      "power": "68",
-                      "combat": "70"
-                    },
-                    "biography": {
-                      "full-name": "Lex Luthor",
-                      "alter-egos": "No alter egos found.",
-                      "aliases": ["-"],
-                      "place-of-birth": "-",
-                      "first-appearance": "Action Comics #23",
-                      "publisher": "DC Comics",
-                      "alignment": "bad"
-                    },
-                    "appearance": {
-                      "gender": "Male",
-                      "race": "Human",
-                      "height": ["6'2'", "188 cm"],
-                      "weight": ["210 lb", "95 kg"],
-                      "eye-color": "Green",
-                      "hair-color": "No Hair"
-                    },
-                    "work": {"occupation": "Owner of LexCorp", "base": "-"},
-                    "connections": {
-                      "group-affiliation":
-                          "Injustice Gang, Injustice League, Society of Supervillains",
-                      "relatives":
-                          "Casey and Elaine Griggs (foster parents, deceased),\nLena Luthor (sister pre-Crisis; daughter post-Crisis),\nElizabeth Perske (ex-wife),\nPerry J. White Jr. (son, deceased),\nContessa Erica Alexandra del Portenza (wife, assumed deceased)"
-                    },
-                    "image": {
-                      "url":
-                          "https:\/\/www.superherodb.com\/pictures2\/portraits\/10\/100\/727.jpg"
+            GetBuilder<HomeGetxController>(
+              builder: (_) {
+                if (_controller.isLoading && _controller.characters.isEmpty) {
+                  return Center(child: CircularProgressIndicator());
+                }
+
+                return Column(
+                  children: List.generate(_controller.characters.length + 1,
+                      (characterID) {
+                    if (characterID == _controller.characters.length) {
+                      if (_controller.characters.isEmpty) {
+                        return Text('Nada para mostrar');
+                      }
+                      return InkWell(
+                        child: Container(
+                          padding: const EdgeInsets.all(10.0),
+                          margin: const EdgeInsets.symmetric(vertical: 5.0),
+                          child: Center(
+                            child: _controller.isLoading
+                                ? CircularProgressIndicator()
+                                : Text(
+                                    'Carregar Mais',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                          ),
+                        ),
+                        onTap: _controller.loadMoreCharacters,
+                      );
                     }
-                  },
-                ),
-                widthInfinity: true,
-                onTap: () {},
-              ),
+                    return Container(
+                      width: Get.width * 0.9,
+                      child: characterDetail(
+                        _controller.characters[characterID],
+                        widthInfinity: true,
+                        onTap: () {
+                          // TODO: FALTA FAZER
+                        },
+                      ),
+                    );
+                  }),
+                );
+              },
             ),
           ],
         ),
