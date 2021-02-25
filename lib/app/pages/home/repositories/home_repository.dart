@@ -1,4 +1,4 @@
-import 'package:meet_heroes/app/shared/models/persona_model.dart';
+import 'package:meet_heroes/app/shared/models/character_model.dart';
 import 'package:meet_heroes/app/shared/models/response_model.dart';
 
 class HomeRepository {
@@ -21,7 +21,7 @@ class HomeRepository {
           final _responseSuccess = _response.body.toMap();
           final _responseModel =
               ResponseModel(response: _responseSuccess.response, results: [
-            PersonaModel.fromMap(_responseSuccess),
+            CharacterModel.fromMap(_responseSuccess),
           ]);
 
           _data.add(_responseModel);
