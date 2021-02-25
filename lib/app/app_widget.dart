@@ -13,10 +13,10 @@ GetMaterialApp appWidget() {
     debugShowCheckedModeBanner: false,
     title: 'Conhecer Heróis',
     theme: ThemeData(
-      primaryColor: Colors.brown[100],
+      primaryColor: Colors.grey[100],
       appBarTheme: AppBarTheme(
         brightness: Brightness.dark,
-        color: Colors.brown[100],
+        color: Colors.grey[200],
         elevation: 0.0,
         iconTheme: IconThemeData(
           color: Colors.black87,
@@ -25,7 +25,7 @@ GetMaterialApp appWidget() {
           color: Colors.black87,
         ),
       ),
-      scaffoldBackgroundColor: Colors.brown[100],
+      scaffoldBackgroundColor: Colors.grey[200],
     ),
     initialBinding: AppBindings(),
     initialRoute: AppRoutes.HOME_ROUTE,
