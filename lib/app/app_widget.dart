@@ -27,7 +27,7 @@ GetMaterialApp appWidget() {
       accentColor: Colors.brown,
       appBarTheme: AppBarTheme(
         brightness: Brightness.dark,
-        color: Colors.grey[200],
+        color: Color(0xFFf8da91),
         elevation: 0.0,
         iconTheme: IconThemeData(
           color: Colors.black87,
@@ -36,7 +36,7 @@ GetMaterialApp appWidget() {
           color: Colors.black87,
         ),
       ),
-      scaffoldBackgroundColor: Colors.grey[200],
+      scaffoldBackgroundColor: Color(0xFFf8da91),
       fontFamily: 'PressStart2P',
     ),
     initialBinding: AppBindings(),
