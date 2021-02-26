@@ -19,7 +19,8 @@ GetMaterialApp appWidget() {
       GlobalCupertinoLocalizations.delegate,
     ],
     supportedLocales: [
-      const Locale('PT', 'BR'),
+      const Locale('pt', 'BR'),
+      const Locale('en', ''),
     ],
     theme: ThemeData(
       primaryColor: Colors.brown,
