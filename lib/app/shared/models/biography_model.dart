@@ -20,11 +20,11 @@ class BiographyModel {
 
   Map<String, dynamic> toMap() {
     return {
-      'fullName': fullName,
-      'alterEgos': alterEgos,
+      'full-name': fullName,
+      'alter-egos': alterEgos,
       'aliases': aliases,
-      'placeOfBirth': placeOfBirth,
-      'firstAppearance': firstAppearance,
+      'place-of-birth': placeOfBirth,
+      'first-appearance': firstAppearance,
       'publisher': publisher,
       'alignment': alignment,
     };
@@ -34,11 +34,11 @@ class BiographyModel {
     if (map == null) return null;
 
     return BiographyModel(
-      fullName: map['fullName'],
-      alterEgos: map['alterEgos'],
+      fullName: map['full-name'],
+      alterEgos: map['alter-egos'],
       aliases: List<String>.from(map['aliases']),
-      placeOfBirth: map['placeOfBirth'],
-      firstAppearance: map['firstAppearance'],
+      placeOfBirth: map['place-of-birth'],
+      firstAppearance: map['first-appearance'],
       publisher: map['publisher'],
       alignment: map['alignment'],
     );

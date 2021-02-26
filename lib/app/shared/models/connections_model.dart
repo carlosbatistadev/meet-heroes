@@ -10,7 +10,7 @@ class ConnectionsModel {
 
   Map<String, dynamic> toMap() {
     return {
-      'groupAffiliation': groupAffiliation,
+      'group-affiliation': groupAffiliation,
       'relatives': relatives,
     };
   }
@@ -19,7 +19,7 @@ class ConnectionsModel {
     if (map == null) return null;
 
     return ConnectionsModel(
-      groupAffiliation: map['groupAffiliation'],
+      groupAffiliation: map['group-affiliation'],
       relatives: map['relatives'],
     );
   }

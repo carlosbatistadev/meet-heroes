@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:meet_heroes/app/app_bindings.dart';
+import 'package:meet_heroes/app/pages/detail/detail_bindings.dart';
+import 'package:meet_heroes/app/pages/detail/detail_getx_controller.dart';
+import 'package:meet_heroes/app/pages/detail/detail_page.dart';
 import 'package:meet_heroes/app/pages/home/home_bindings.dart';
 import 'package:meet_heroes/app/pages/home/home_page.dart';
 
@@ -51,6 +54,11 @@ GetMaterialApp appWidget() {
         name: AppRoutes.SEARCH_ROUTE,
         page: () => SearchPage(Get.find()),
         binding: SearchBindings(),
+      ),
+      GetPage(
+        name: AppRoutes.DETAIL_ROUTE,
+        page: () => DetailPage(Get.find<DetailGetxController>()),
+        binding: DetailBindings(),
       ),
     ],
   );

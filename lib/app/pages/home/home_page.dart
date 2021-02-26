@@ -122,7 +122,10 @@ class HomePage extends StatelessWidget {
                         _controller.characters[characterID],
                         widthInfinity: true,
                         onTap: () {
-                          // TODO: FALTA FAZER
+                          Get.toNamed(
+                            AppRoutes.DETAIL_ROUTE,
+                            arguments: _controller.characters[characterID],
+                          );
                         },
                       ),
                     );

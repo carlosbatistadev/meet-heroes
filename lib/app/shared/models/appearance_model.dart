@@ -22,8 +22,8 @@ class AppearanceModel {
       'race': race,
       'height': height,
       'weight': weight,
-      'eyeColor': eyeColor,
-      'hairColor': hairColor,
+      'eye-color': eyeColor,
+      'hair-color': hairColor,
     };
   }
 
@@ -35,8 +35,8 @@ class AppearanceModel {
       race: map['race'],
       height: List<String>.from(map['height']),
       weight: List<String>.from(map['weight']),
-      eyeColor: map['eyeColor'],
-      hairColor: map['hairColor'],
+      eyeColor: map['eye-color'],
+      hairColor: map['hair-color'],
     );
   }
 
