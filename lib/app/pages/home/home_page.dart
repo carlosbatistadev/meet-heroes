@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:meet_heroes/app/shared/models/character_model.dart';
 import 'package:meet_heroes/app/shared/widgets/character_detail.dart';
 
+import '../../app_routes.dart';
 import 'home_getx_controller.dart';
 
 class HomePage extends StatelessWidget {
@@ -15,8 +16,12 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Conhecer Heróis',
-          style: TextStyle(color: Colors.black87),
+          'Heroes',
+          style: TextStyle(
+            color: Colors.black87,
+            fontFamily: 'Hero',
+            fontSize: 35,
+          ),
         ),
         actions: [
           IconButton(
@@ -28,7 +33,7 @@ class HomePage extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.search),
             onPressed: () {
-              // TODO: FALTA IMPLEMENTAR
+              Get.toNamed(AppRoutes.SEARCH_ROUTE);
             },
           ),
         ],
@@ -54,10 +59,12 @@ class HomePage extends StatelessWidget {
                         _controller.favorites.length + 1,
                         (characterID) {
                           if (characterID == _controller.favorites.length) {
-                            if (_controller.characters.isEmpty) {
+                            if (_controller.favorites.isEmpty) {
                               return Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Text('Nada para mostrar'),
+                                child: Text(
+                                  'Nada para mostrar',
+                                ),
                               );
                             }
                             return InkWell(
@@ -84,6 +91,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 30),
+            const Divider(),
             GetBuilder<HomeGetxController>(
               builder: (_) {
                 if (_controller.isLoading && _controller.characters.isEmpty) {
@@ -99,7 +107,7 @@ class HomePage extends StatelessWidget {
                       }
                       return InkWell(
                         child: Container(
-                          padding: const EdgeInsets.all(10.0),
+                          padding: const EdgeInsets.symmetric(vertical: 20.0),
                           margin: const EdgeInsets.symmetric(vertical: 5.0),
                           child: Center(
                             child: _controller.isLoading
