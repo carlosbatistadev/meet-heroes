@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:meet_heroes/app/pages/detail/detail_getx_controller.dart';
 
 import 'widgets/custom_text_widget.dart';
 import 'widgets/information_widget.dart';
@@ -51,13 +52,17 @@ class DetailPage extends StatelessWidget {
                           fontSize: 35,
                         ),
                       ),
-                      IconButton(
-                        icon: const Icon(
-                          Icons.favorite_border_sharp,
-                          color: Colors.white,
-                        ),
-                        onPressed: () {
-                          // TODO: FALTA IMPLEMENTAR
+                      GetBuilder<DetailGetxController>(
+                        builder: (_) {
+                          return IconButton(
+                            icon: Icon(
+                              _controller.isFavorite
+                                  ? Icons.favorite
+                                  : Icons.favorite_border_sharp,
+                              color: Colors.white,
+                            ),
+                            onPressed: _controller.changeFavorite,
+                          );
                         },
                       ),
                     ],

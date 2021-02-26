@@ -7,10 +7,26 @@ class DetailGetxController extends GetxController {
   DetailGetxController(this._repository);
 
   CharacterModel character;
+  bool isFavorite = false;
 
   @override
   void onInit() {
     character = Get.arguments;
+    _checkIfYouAreFavorite();
     super.onInit();
+  }
+
+  void _checkIfYouAreFavorite() {
+    isFavorite = _repository.checkIfYouAreFavorite(character.id);
+    update();
+  }
+
+  void changeFavorite() {
+    if (isFavorite) {
+      isFavorite = _repository.removeFavorite(character.id);
+    } else {
+      isFavorite = _repository.saveFavorite(character.id);
+    }
+    update();
   }
 }
