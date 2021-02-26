@@ -5,6 +5,9 @@ import 'package:meet_heroes/app/app_bindings.dart';
 import 'package:meet_heroes/app/pages/detail/detail_bindings.dart';
 import 'package:meet_heroes/app/pages/detail/detail_getx_controller.dart';
 import 'package:meet_heroes/app/pages/detail/detail_page.dart';
+import 'package:meet_heroes/app/pages/favorites/favorites_bindings.dart';
+import 'package:meet_heroes/app/pages/favorites/favorites_getx_controller.dart';
+import 'package:meet_heroes/app/pages/favorites/favorites_page.dart';
 import 'package:meet_heroes/app/pages/home/home_bindings.dart';
 import 'package:meet_heroes/app/pages/home/home_getx_controller.dart';
 import 'package:meet_heroes/app/pages/home/home_page.dart';
@@ -61,6 +64,11 @@ GetMaterialApp appWidget() {
         name: AppRoutes.DETAIL_ROUTE,
         page: () => DetailPage(Get.find<DetailGetxController>()),
         binding: DetailBindings(),
+      ),
+      GetPage(
+        name: AppRoutes.FAVORITES_ROUTE,
+        page: () => FavoritesPage(Get.find<FavoritesGetxController>()),
+        binding: FavoritesBindings(),
       ),
     ],
   );

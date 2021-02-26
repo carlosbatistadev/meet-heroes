@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:meet_heroes/app/pages/search/repositories/search_repository.dart';
 import 'package:meet_heroes/app/shared/models/character_model.dart';

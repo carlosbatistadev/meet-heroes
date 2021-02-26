@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.favorite_border_sharp),
             onPressed: () {
-              // TODO: FALTA IMPLEMENTAR
+              Get.toNamed(AppRoutes.FAVORITES_ROUTE);
             },
           ),
           IconButton(
