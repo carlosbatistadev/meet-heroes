@@ -37,6 +37,7 @@ GetMaterialApp appWidget() {
         ),
       ),
       scaffoldBackgroundColor: Colors.grey[200],
+      fontFamily: 'PressStart2P',
     ),
     initialBinding: AppBindings(),
     initialRoute: AppRoutes.HOME_ROUTE,
