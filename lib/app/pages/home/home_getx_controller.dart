@@ -6,7 +6,6 @@ class HomeGetxController extends GetxController {
   final HomeRepository _repository;
   HomeGetxController(this._repository);
 
-  List<CharacterModel> favorites = [];
   List<CharacterModel> characters = [];
 
   bool isLoading = false;
@@ -15,8 +14,8 @@ class HomeGetxController extends GetxController {
     update();
   }
 
-  //List<int> _ids = [1, 2, 3, 4, 5];
-  List<int> _ids = [1];
+  List<int> _ids = [1, 2, 3, 4, 5];
+
   List<int> _fiveMoreIds() {
     return [
       _ids.last + 1,
@@ -32,7 +31,6 @@ class HomeGetxController extends GetxController {
     _changeIsLoading(true);
 
     characters = await _repository.loadFiveCharacters(_ids);
-    //favorites = await _repository.loadFavorites();
 
     _changeIsLoading(false);
     super.onInit();
