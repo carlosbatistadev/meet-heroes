@@ -1,13 +1,12 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:meet_heroes/app/shared/models/character_model.dart';
+import 'package:flutter/material.dart';
 import 'package:meet_heroes/app/shared/widgets/character_detail.dart';
 
 import '../../app_routes.dart';
 import 'home_getx_controller.dart';
 
 class HomePage extends StatelessWidget {
-  final HomeGetxController _controller;
+  final _controller;
 
   const HomePage(this._controller, {Key key}) : super(key: key);
 

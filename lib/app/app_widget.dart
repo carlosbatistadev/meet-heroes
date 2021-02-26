@@ -6,7 +6,9 @@ import 'package:meet_heroes/app/pages/detail/detail_bindings.dart';
 import 'package:meet_heroes/app/pages/detail/detail_getx_controller.dart';
 import 'package:meet_heroes/app/pages/detail/detail_page.dart';
 import 'package:meet_heroes/app/pages/home/home_bindings.dart';
+import 'package:meet_heroes/app/pages/home/home_getx_controller.dart';
 import 'package:meet_heroes/app/pages/home/home_page.dart';
+import 'package:meet_heroes/app/pages/search/search_getx_controller.dart';
 
 import 'app_routes.dart';
 import 'pages/search/search_bindings.dart';
@@ -47,12 +49,12 @@ GetMaterialApp appWidget() {
     getPages: <GetPage>[
       GetPage(
         name: AppRoutes.HOME_ROUTE,
-        page: () => HomePage(Get.find()),
+        page: () => HomePage(Get.find<HomeGetxController>()),
         binding: HomeBindings(),
       ),
       GetPage(
         name: AppRoutes.SEARCH_ROUTE,
-        page: () => SearchPage(Get.find()),
+        page: () => SearchPage(Get.find<SearchGetxController>()),
         binding: SearchBindings(),
       ),
       GetPage(

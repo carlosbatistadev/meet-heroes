@@ -4,7 +4,7 @@ import 'package:meet_heroes/app/shared/widgets/character_detail.dart';
 import 'search_getx_controller.dart';
 
 class SearchPage extends StatelessWidget {
-  final SearchGetxController _controller;
+  final _controller;
 
   const SearchPage(this._controller, {Key key}) : super(key: key);
 
