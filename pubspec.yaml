@@ -65,8 +65,8 @@ flutter:
   fonts:
     - family: Hero
       fonts:
-        - asset: assets/fonts/Hero.ttf
-        - asset: assets/fonts/Hero-italic.ttf
+        - asset: assets/fonts/hero.ttf
+        - asset: assets/fonts/hero-italic.ttf
           style: italic
     - family: PressStart2P
       fonts:
