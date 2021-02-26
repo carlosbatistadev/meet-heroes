@@ -21,17 +21,20 @@ class DetailPage extends StatelessWidget {
           children: [
             Stack(
               children: [
-                Image.network(
-                  _controller.character.image.url,
-                  fit: BoxFit.cover,
-                  frameBuilder: (BuildContext context, Widget child, int frame,
-                      bool wasSynchronouslyLoaded) {
-                    return child;
-                  },
-                  loadingBuilder: (BuildContext context, Widget child,
-                      ImageChunkEvent loadingProgress) {
-                    return Center(child: child);
-                  },
+                Hero(
+                  tag: _controller.character.image.url,
+                  child: Image.network(
+                    _controller.character.image.url,
+                    fit: BoxFit.cover,
+                    frameBuilder: (BuildContext context, Widget child,
+                        int frame, bool wasSynchronouslyLoaded) {
+                      return child;
+                    },
+                    loadingBuilder: (BuildContext context, Widget child,
+                        ImageChunkEvent loadingProgress) {
+                      return Center(child: child);
+                    },
+                  ),
                 ),
                 Container(
                   padding: EdgeInsets.only(

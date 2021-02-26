@@ -37,13 +37,12 @@ class SearchPage extends StatelessWidget {
           Expanded(
             child: GetBuilder<SearchGetxController>(
               builder: (_) {
+                if (_controller.isLoading) {
+                  return Center(child: CircularProgressIndicator());
+                }
                 if (_controller.searchText.isEmpty ||
                     _controller.resultSearch.isEmpty) {
                   return Container();
-                }
-
-                if (_controller.isLoading) {
-                  return Center(child: CircularProgressIndicator());
                 }
 
                 return SingleChildScrollView(

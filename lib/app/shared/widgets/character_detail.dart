@@ -12,19 +12,22 @@ Widget characterDetail(CharacterModel character,
         padding: const EdgeInsets.all(6),
         child: Column(
           children: [
-            Image.network(
-              character.image.url,
-              frameBuilder: (BuildContext context, Widget child, int frame,
-                  bool wasSynchronouslyLoaded) {
-                return Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: child,
-                );
-              },
-              loadingBuilder: (BuildContext context, Widget child,
-                  ImageChunkEvent loadingProgress) {
-                return Center(child: child);
-              },
+            Hero(
+              tag: character.image.url,
+              child: Image.network(
+                character.image.url,
+                frameBuilder: (BuildContext context, Widget child, int frame,
+                    bool wasSynchronouslyLoaded) {
+                  return Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: child,
+                  );
+                },
+                loadingBuilder: (BuildContext context, Widget child,
+                    ImageChunkEvent loadingProgress) {
+                  return Center(child: child);
+                },
+              ),
             ),
             const SizedBox(height: 15),
             Row(
