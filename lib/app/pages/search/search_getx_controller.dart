@@ -20,6 +20,8 @@ class SearchGetxController extends GetxController {
   }
 
   void search(String value) async {
+    if (isLoading) return;
+
     _changeIsLoading(true);
 
     resultSearch = await _repository.search(searchText);
