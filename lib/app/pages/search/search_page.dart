@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:meet_heroes/app/app_routes.dart';
 import 'package:meet_heroes/app/shared/widgets/character_detail.dart';
 import 'search_getx_controller.dart';
 
@@ -65,7 +66,11 @@ class SearchPage extends StatelessWidget {
                                 _controller.resultSearch[characterID],
                                 widthInfinity: true,
                                 onTap: () {
-                                  // TODO: FALTA FAZER
+                                  Get.toNamed(
+                                    AppRoutes.DETAIL_ROUTE,
+                                    arguments:
+                                        _controller.resultSearch[characterID],
+                                  );
                                 },
                               ),
                             );
