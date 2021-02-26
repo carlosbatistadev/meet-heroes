@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:meet_heroes/app/app_bindings.dart';
 import 'package:meet_heroes/app/pages/home/home_bindings.dart';
@@ -12,6 +13,14 @@ GetMaterialApp appWidget() {
   return GetMaterialApp(
     debugShowCheckedModeBanner: false,
     title: 'Conhecer Heróis',
+    localizationsDelegates: [
+      GlobalMaterialLocalizations.delegate,
+      GlobalWidgetsLocalizations.delegate,
+      GlobalCupertinoLocalizations.delegate,
+    ],
+    supportedLocales: [
+      const Locale('PT', 'BR'),
+    ],
     theme: ThemeData(
       primaryColor: Colors.brown,
       accentColor: Colors.brown,
