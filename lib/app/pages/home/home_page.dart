@@ -41,46 +41,6 @@ class HomePage extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
-            const SizedBox(height: 25),
-            GetBuilder<HomeGetxController>(
-              builder: (_) {
-                return Container(
-                  height: _controller.favorites.isEmpty ? 0 : 400,
-                  child: SingleChildScrollView(
-                    physics: const BouncingScrollPhysics(),
-                    scrollDirection: Axis.horizontal,
-                    child:
-                        _controller.isLoading && _controller.favorites.isEmpty
-                            ? Center(child: CircularProgressIndicator())
-                            : Row(
-                                children: List.generate(
-                                  _controller.favorites.length + 1,
-                                  (characterID) {
-                                    if (characterID ==
-                                        _controller.favorites.length) {
-                                      return InkWell(
-                                        onTap: () {},
-                                        child: Container(
-                                          width: 200,
-                                          height: 390,
-                                          child: Center(
-                                            child: Text('Mostrar todos'),
-                                          ),
-                                        ),
-                                      );
-                                    }
-
-                                    return characterDetail(
-                                      _controller.favorites[characterID],
-                                      onTap: () {},
-                                    );
-                                  },
-                                ),
-                              ),
-                  ),
-                );
-              },
-            ),
             const SizedBox(height: 30),
             const Divider(),
             GetBuilder<HomeGetxController>(
