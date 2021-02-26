@@ -14,16 +14,29 @@ Widget characterDetail(CharacterModel character,
           children: [
             Image.network(
               character.image.url,
+              frameBuilder: (BuildContext context, Widget child, int frame,
+                  bool wasSynchronouslyLoaded) {
+                return Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: child,
+                );
+              },
+              loadingBuilder: (BuildContext context, Widget child,
+                  ImageChunkEvent loadingProgress) {
+                return Center(child: child);
+              },
             ),
             const SizedBox(height: 15),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  character.name,
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
+                Expanded(
+                  child: Text(
+                    character.name,
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
                 Text(character.id),
