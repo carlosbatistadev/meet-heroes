@@ -49,6 +49,7 @@ GetMaterialApp appWidget() {
     ),
     initialBinding: AppBindings(),
     initialRoute: AppRoutes.HOME_ROUTE,
+    defaultTransition: Transition.fadeIn,
     getPages: <GetPage>[
       GetPage(
         name: AppRoutes.HOME_ROUTE,
