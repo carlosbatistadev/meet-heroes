@@ -13,9 +13,7 @@ class SearchRepository {
     final _response = await restClient.get('/search/$searchText');
 
     if (_response.statusCode == 200 || _response.statusCode == 202) {
-      final _responseSuccess = _response.body['results'];
-
-      for (Map<String, dynamic> character in _responseSuccess) {
+      for (Map<String, dynamic> character in _response.body['results']) {
         _data.add(CharacterModel.fromMap(character));
       }
     }

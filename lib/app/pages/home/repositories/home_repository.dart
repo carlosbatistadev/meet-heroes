@@ -12,8 +12,7 @@ class HomeRepository {
       final _response = await restClient.get(id.toString());
 
       if (_response.statusCode == 200 || _response.statusCode == 202) {
-        final _responseSuccess = _response.body;
-        final _characterModel = CharacterModel.fromMap(_responseSuccess);
+        final _characterModel = CharacterModel.fromMap(_response.body);
 
         _data.add(_characterModel);
       }

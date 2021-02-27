@@ -19,13 +19,13 @@ class SearchPage extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: TextField(
               cursorColor: Colors.black,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 12,
               ),
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
+              decoration: const InputDecoration(
+                border: const OutlineInputBorder(),
                 hintText: 'Procurar...',
-                hintStyle: TextStyle(
+                hintStyle: const TextStyle(
                   fontSize: 12,
                 ),
               ),
@@ -38,7 +38,7 @@ class SearchPage extends StatelessWidget {
             child: GetBuilder<SearchGetxController>(
               builder: (_) {
                 if (_controller.isLoading) {
-                  return Center(child: CircularProgressIndicator());
+                  return const Center(child: CircularProgressIndicator());
                 }
                 if (_controller.searchText.isEmpty ||
                     _controller.resultSearch.isEmpty) {

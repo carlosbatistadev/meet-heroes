@@ -40,26 +40,28 @@ class FavoritesPage extends StatelessWidget {
             GetBuilder<FavoritesGetxController>(
               builder: (_) {
                 if (_controller.isLoading && _controller.favorites.isEmpty) {
-                  return Center(child: CircularProgressIndicator());
+                  return const Center(child: CircularProgressIndicator());
                 }
 
                 return Column(
-                  children: List.generate(_controller.favorites.length,
-                      (characterID) {
-                    return Container(
-                      width: Get.width * 0.9,
-                      child: characterDetail(
-                        _controller.favorites[characterID],
-                        widthInfinity: true,
-                        onTap: () {
-                          Get.toNamed(
-                            AppRoutes.DETAIL_ROUTE,
-                            arguments: _controller.favorites[characterID],
-                          );
-                        },
-                      ),
-                    );
-                  }),
+                  children: List.generate(
+                    _controller.favorites.length,
+                    (characterID) {
+                      return Container(
+                        width: Get.width * 0.9,
+                        child: characterDetail(
+                          _controller.favorites[characterID],
+                          widthInfinity: true,
+                          onTap: () {
+                            Get.toNamed(
+                              AppRoutes.DETAIL_ROUTE,
+                              arguments: _controller.favorites[characterID],
+                            );
+                          },
+                        ),
+                      );
+                    },
+                  ),
                 );
               },
             ),
