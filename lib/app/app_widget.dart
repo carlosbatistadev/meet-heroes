@@ -12,6 +12,9 @@ import 'package:meet_heroes/app/pages/home/home_bindings.dart';
 import 'package:meet_heroes/app/pages/home/home_getx_controller.dart';
 import 'package:meet_heroes/app/pages/home/home_page.dart';
 import 'package:meet_heroes/app/pages/search/search_getx_controller.dart';
+import 'package:meet_heroes/app/pages/splash/splash_bindings.dart';
+import 'package:meet_heroes/app/pages/splash/splash_getx_controller.dart';
+import 'package:meet_heroes/app/pages/splash/splash_page.dart';
 
 import 'app_routes.dart';
 import 'pages/search/search_bindings.dart';
@@ -48,9 +51,14 @@ GetMaterialApp appWidget() {
       fontFamily: 'PressStart2P',
     ),
     initialBinding: AppBindings(),
-    initialRoute: AppRoutes.HOME_ROUTE,
+    initialRoute: AppRoutes.SPLASH_ROUTE,
     defaultTransition: Transition.fadeIn,
     getPages: <GetPage>[
+      GetPage(
+        name: AppRoutes.SPLASH_ROUTE,
+        page: () => SplashPage(Get.find<SplashGetxController>()),
+        binding: SplashBindings(),
+      ),
       GetPage(
         name: AppRoutes.HOME_ROUTE,
         page: () => HomePage(Get.find<HomeGetxController>()),
