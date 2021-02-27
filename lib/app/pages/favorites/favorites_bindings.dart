@@ -6,7 +6,13 @@ import 'package:meet_heroes/app/pages/favorites/repositories/favorites_repositor
 class FavoritesBindings implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => FavoritesGetxController(
-        FavoritesRepository(Get.find<GetConnect>(), GetStorage())));
+    Get.lazyPut(
+      () => FavoritesGetxController(
+        FavoritesRepository(
+          Get.find<GetConnect>(),
+          GetStorage(),
+        ),
+      ),
+    );
   }
 }

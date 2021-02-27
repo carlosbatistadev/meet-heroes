@@ -32,6 +32,7 @@ class FavoritesPage extends StatelessWidget {
         ],
       ),
       body: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
@@ -40,10 +41,15 @@ class FavoritesPage extends StatelessWidget {
             GetBuilder<FavoritesGetxController>(
               builder: (_) {
                 if (_controller.isLoading && _controller.favorites.isEmpty) {
-                  return const Center(child: CircularProgressIndicator());
+                  return Container(
+                    alignment: Alignment.center,
+                    width: Get.width,
+                    height: Get.width,
+                    child: const Center(child: CircularProgressIndicator()),
+                  );
                 }
 
-                return Column(
+                return Row(
                   children: List.generate(
                     _controller.favorites.length,
                     (characterID) {
